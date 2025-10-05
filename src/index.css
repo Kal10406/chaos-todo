@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Card styling */
+.card {
+  background-color: #1f2937; /* gray-800 */
+  color: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+}
+
+/* Glitch effect for header */
+.glitch {
+  position: relative;
+  color: white;
+  font-family: monospace;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+}
+
+.glitch::before {
+  animation: glitchTop 1s infinite linear alternate-reverse;
+  color: #f0f;
+}
+
+.glitch::after {
+  animation: glitchBottom 1s infinite linear alternate-reverse;
+  color: #0ff;
+}
+
+@keyframes glitchTop {
+  0% { clip: rect(0, 9999px, 5px, 0); transform: translate(-2px, -2px);}
+  25% { clip: rect(10px, 9999px, 20px, 0); transform: translate(2px, 0);}
+  50% { clip: rect(15px, 9999px, 25px, 0); transform: translate(-2px, 2px);}
+  75% { clip: rect(20px, 9999px, 30px, 0); transform: translate(2px, -2px);}
+  100% { clip: rect(25px, 9999px, 35px, 0); transform: translate(0, 0);}
+}
+
+@keyframes glitchBottom {
+  0% { clip: rect(30px, 9999px, 35px, 0); transform: translate(2px, 2px);}
+  25% { clip: rect(35px, 9999px, 45px, 0); transform: translate(-2px, 0);}
+  50% { clip: rect(40px, 9999px, 50px, 0); transform: translate(2px, -2px);}
+  75% { clip: rect(45px, 9999px, 55px, 0); transform: translate(-2px, 2px);}
+  100% { clip: rect(50px, 9999px, 60px, 0); transform: translate(0, 0);}
+}
+
+/* Error overlay */
+.error-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.7);
+  z-index: 50;
+}
+
+.error-card {
+  background-color: #1f2937; /* gray-800 */
+  padding: 2rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  color: white;
+  max-width: 400px;
+}
+
+/* Input field */
+input[type="text"] {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  background-color: #374151; /* gray-700 */
+  color: white;
+  flex: 1;
+  border: none;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  outline: 2px solid #6366f1; /* indigo-500 */
+}
+
+/* Buttons */
+button {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button.bg-indigo-600 { background-color: #4f46e5; }
+button.bg-indigo-600:hover { background-color: #4338ca; }
+
+button.bg-yellow-600 { background-color: #ca8a04; }
+button.bg-yellow-600:hover { background-color: #b45309; }
+
+button.bg-green-600 { background-color: #16a34a; }
+button.bg-green-600:hover { background-color: #15803d; }
+
+button.bg-white-10 { background-color: rgba(255,255,255,0.1); }
+button.bg-white-10:hover { background-color: rgba(255,255,255,0.2); }
